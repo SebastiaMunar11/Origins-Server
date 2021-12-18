@@ -1,0 +1,323 @@
+{
+	"type": "origins:multiple",
+	"name": "(Mothwing cloak)",
+	"description": "[Secondary] Allows the wearer to dash forwards along the ground or through the air.",
+
+	"charges": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 2,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"cooldown": {
+		"type": "origins:cooldown",
+		"cooldown": 20,
+		"comment": "active_self cooldowns can't be set, only triggered, unlike cooldown resources, so this allows us to instantly reset the dash cooldown with springs and refill gems",
+		"comment_": "Yes there is a mismatch with the bars, but who will notice it? (Just change the bars to max 5 if it bothers you)",
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"pink_bar": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 7,
+		"start_value": 7,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 19,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "blacklad:mountaineer_dash_charges",
+				"comparison": "==",
+				"compare_to": 2
+			}
+		}
+	},
+
+	"red_bar": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 7,
+		"start_value": 7,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 19,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "blacklad:mountaineer_dash_charges",
+				"comparison": "==",
+				"compare_to": 1
+			}
+		}
+	},
+
+	"update_bars": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:resource",
+				"resource": "blacklad:mountaineer_dash_cooldown",
+				"comparison": "!=",
+				"compare_to": 0
+			},
+			"if_action": {
+				"comment": "Still reloading, fill bar step",
+				"type": "origins:and",
+				"actions": [{
+						"type": "origins:change_resource",
+						"resource": "blacklad:mountaineer_dash_pink_bar",
+						"change": 1
+					},
+					{
+						"type": "origins:change_resource",
+						"resource": "blacklad:mountaineer_dash_red_bar",
+						"change": 1
+					}
+				]
+			},
+			"else_action": {
+				"comment": "Already reloaded, fill full bar",
+				"type": "origins:and",
+				"actions": [{
+						"type": "origins:change_resource",
+						"resource": "blacklad:mountaineer_dash_pink_bar",
+						"change": 8
+					},
+					{
+						"type": "origins:change_resource",
+						"resource": "blacklad:mountaineer_dash_red_bar",
+						"change": 8
+					}
+				]
+			}
+		}
+	},
+
+	"dash": {
+		"type": "origins:active_self",
+		"cooldown": 20,
+		"hud_render": {
+			"should_render": false
+		},
+
+		"key": {
+			"key": "key.origins.secondary_active",
+			"continuous": false
+
+		},
+
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:change_resource",
+					"resource": "blacklad:golden_feather_flying",
+					"change": -50,
+					"comment": "Stop flight"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "blacklad:mountaineer_dash_charges",
+					"change": -1
+				},
+				{
+					"type": "origins:add_velocity",
+					"z": 1.0,
+					"space": "local",
+					"set": true
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "blacklad:mountaineer_dash_pink_bar",
+					"change": -8
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "blacklad:mountaineer_dash_red_bar",
+					"change": -8
+				},
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "blacklad:mountaineer_dash_cooldown"
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "blacklad:mountaineer_dash_charges",
+						"comparison": "==",
+						"compare_to": 1
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [{
+								"type": "origins:execute_command",
+								"command": "playsound minecraft:ui.toast.in master @p ~ ~ ~ 3"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "function blacklad:dash/internal/red_shadow"
+							},
+							{
+								"type": "origins:delay",
+								"ticks": 1,
+								"action": {
+									"type": "origins:execute_command",
+									"command": "function blacklad:dash/internal/red_shadow"
+								}
+
+							}
+						]
+					},
+					"else_action": {
+						"type": "origins:and",
+						"actions": [{
+
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:power",
+									"power": "blacklad:reunited"
+								},
+								"if_action": {
+									"type": "origins:execute_command",
+									"command": "playsound minecraft:ui.toast.out master @p ~ ~ ~ 3"
+								},
+								"else_action": {
+									"type": "origins:execute_command",
+									"command": "playsound minecraft:ui.toast.in master @p ~ ~ ~ 3"
+								}
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "function blacklad:dash/internal/cyan_shadow"
+							},
+							{
+								"type": "origins:delay",
+								"ticks": 1,
+								"action": {
+									"type": "origins:execute_command",
+									"command": "function blacklad:dash/internal/cyan_shadow"
+								}
+
+							}
+						]
+					}
+				}
+			]
+		},
+
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:resource",
+					"resource": "blacklad:mountaineer_dash_charges",
+					"comparison": "!=",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "blacklad:mountaineer_dash_cooldown",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:sneaking",
+					"inverted": true
+				}
+			]
+		}
+	},
+
+	"reload_on_land": {
+		"type": "origins:action_on_land",
+		"comment": "The next subpower, while more consistent, might not trigger despite the player touching the ground, so this power makes sure that the dash is properly reloaded in that case",
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:player"
+					},
+					{
+						"type": "origins:power",
+						"power": "blacklad:reunited"
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:change_resource",
+				"resource": "blacklad:mountaineer_dash_charges",
+				"change": 2
+			},
+			"else_action": {
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:resource",
+					"resource": "blacklad:mountaineer_dash_charges",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				"if_action": {
+					"type": "origins:change_resource",
+					"resource": "blacklad:mountaineer_dash_charges",
+					"change": 1
+				}
+			}
+		}
+	},
+
+	"reload_periodically_on_ground": {
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"comment": "The previous subpower requires the player to land to refill things, but if they were climbing and arrive on top of a block, or got their origin changed, there will be a mismatch, so this is what this subpower is for",
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:player"
+					},
+					{
+						"type": "origins:power",
+						"power": "blacklad:reunited"
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:change_resource",
+				"resource": "blacklad:mountaineer_dash_charges",
+				"change": 2
+			},
+			"else_action": {
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:resource",
+					"resource": "blacklad:mountaineer_dash_charges",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				"if_action": {
+					"type": "origins:change_resource",
+					"resource": "blacklad:mountaineer_dash_charges",
+					"change": 1
+				}
+			}
+		},
+		"condition": {
+			"type": "origins:block_collision",
+			"offset_x": 0,
+			"offset_y": -0.001,
+			"offset_z": 0
+		}
+	}
+}

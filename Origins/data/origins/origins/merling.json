@@ -1,0 +1,32 @@
+{
+	"powers": [
+		"origins:water_breathing",
+		"origins:water_vision",
+		"origins:aqua_affinity",
+		"origins:swim_speed",
+		"origins:like_water",
+		"origins:aquatic",
+		"origins:conduit_power_on_land",
+		"origins:air_from_potions",
+		"origins:cat_vision",
+		"origins:rogue_dash",
+		"origins:rogue_dash_particles",
+		"origins:trident_proficiency",
+		"origins:summon_dolphin",
+		"origins:raw_cod",
+		"origins:raw_salmon",
+		"origins:raw_tropicalfish",
+		"origins:fish_diet",
+		"origins:ocean_spawn",
+		"origins:absorbing",
+		"origins:delicate",
+		"origins:fragile",
+		"origins:place_of_worship"
+		
+	],
+	"icon": {
+		"item": "minecraft:trident"
+	},
+	"order": 0,
+	"impact": 3
+}

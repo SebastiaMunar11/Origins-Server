@@ -1,0 +1,62 @@
+{
+    "type": "origins:multiple",
+
+
+    "render_armor": {
+        "type": "origins:toggle",
+        "active_by_default": true,
+        "key": {
+            "key": "key.origins.secondary_active"
+        }
+    },
+
+
+    "toggle": {
+        "type": "origins:toggle",
+        "active_by_default": false,
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
+
+    
+    "no_armor": {
+        "type": "origins:invisibility",
+        "render_armor": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:*_toggle"
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "*:*_render_armor",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+
+
+    "with_armor": {
+        "type": "origins:invisibility",
+        "render_armor": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:*_toggle"
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "*:*_render_armor"
+                }
+            ]
+        }
+    },
+    "name": "Toggle-able Invisibility",
+    "description": "You can turn invisible by toggling the Primary ability key. You can also hide your armor whilst being invisible by toggling the Secondary ability key."
+}

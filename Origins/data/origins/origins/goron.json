@@ -1,0 +1,21 @@
+{
+	"powers": [
+		"origins:shulker_inventory",
+		"origins:natural_armor",
+		"origins:strong_arms",
+		"origins:strong_arms_break_speed",
+		"origins:no_shield",
+		"origins:lava_inmunity",
+		"origins:water_vulnerability",
+		"origins:flame_particles",
+		"origins:tank",
+		"origins:slower"
+		
+	],
+	"icon": {
+		"item": "minecraft:lava_bucket"
+	},
+	"order": 4,
+	"impact": 1,
+	"name": "Goron"
+}

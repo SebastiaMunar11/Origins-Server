@@ -1,0 +1,16 @@
+{
+  "type": "origins:action_on_item_use",
+  "hidden": true,
+  "item_condition": {
+    "type": "origins:ingredient",
+    "ingredient": {
+      "item": "minecraft:potion"
+    }
+  },
+  "entity_action": {
+    "type":"origins:execute_command",
+    "command":"effect give @p minecraft:regeneration 5 1"
+  },
+  "name":"Regen drinking water",
+  "description": "Regeneration goes glu glu"
+}

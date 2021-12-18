@@ -1,0 +1,21 @@
+{
+	"type": "origins:action_on_callback",
+	"name": "Old Nail",
+	"description": "You start with an Old Nail.",
+	"entity_action_chosen": {
+		"type": "origins:execute_command",
+		"command": "/give @s hollowknight_sword:oldnail{Enchantments:[{id:vanishing_curse,lvl:1}]} 1",
+		"permission_level": 4
+	},
+	"entity_action_respawned": {
+		"type": "origins:execute_command",
+		"command": "/give @s hollowknight_sword:oldnail{Enchantments:[{id:vanishing_curse,lvl:1}]} 1",
+		"permission_level": 4
+	},
+	"entity_action_lost": {
+		"type": "origins:execute_command",
+		"command": "clear @s hollowknight_sword:oldnail",
+		"permission_level": 4
+	},
+	"execute_chosen_when_orb": true
+}

@@ -1,0 +1,68 @@
+{
+  "mappings": {
+    "moriyashiine/extraorigins/mixin/EntityMixin": {
+      "dismountVehicle": "Lnet/minecraft/class_1297;method_29239()V",
+      "Lnet/minecraft/entity/Entity;removePassenger(Lnet/minecraft/entity/Entity;)V": "Lnet/minecraft/class_1297;method_5793(Lnet/minecraft/class_1297;)V",
+      "getMountedHeightOffset": "Lnet/minecraft/class_1297;method_5621()D",
+      "slowMovement": "Lnet/minecraft/class_1297;method_5844(Lnet/minecraft/class_2680;Lnet/minecraft/class_243;)V"
+    },
+    "moriyashiine/extraorigins/mixin/PowderSnowBlockMixin": {
+      "canWalkOnPowderSnow": "Lnet/minecraft/class_5635;method_32355(Lnet/minecraft/class_1297;)Z"
+    },
+    "moriyashiine/extraorigins/mixin/ItemStackMixin": {
+      "getTooltip": "Lnet/minecraft/class_1799;method_7950(Lnet/minecraft/class_1657;Lnet/minecraft/class_1836;)Ljava/util/List;",
+      "Lnet/minecraft/item/ItemStack;getAttributeModifiers(Lnet/minecraft/entity/EquipmentSlot;)Lcom/google/common/collect/Multimap;": "Lnet/minecraft/class_1799;method_7926(Lnet/minecraft/class_1304;)Lcom/google/common/collect/Multimap;",
+      "damage(ILnet/minecraft/entity/LivingEntity;Ljava/util/function/Consumer;)V": "Lnet/minecraft/class_1799;method_7956(ILnet/minecraft/class_1309;Ljava/util/function/Consumer;)V"
+    },
+    "moriyashiine/extraorigins/mixin/EndermanEntityMixin": {
+      "isPlayerStaring": "Lnet/minecraft/class_1560;method_7026(Lnet/minecraft/class_1657;)Z"
+    },
+    "moriyashiine/extraorigins/mixin/ActiveTargetGoalMixin": {
+      "<init>(Lnet/minecraft/entity/mob/MobEntity;Ljava/lang/Class;IZZLjava/util/function/Predicate;)V": "Lnet/minecraft/class_1400;<init>(Lnet/minecraft/class_1308;Ljava/lang/Class;IZZLjava/util/function/Predicate;)V"
+    },
+    "moriyashiine/extraorigins/mixin/PiglinBrainMixin": {
+      "wearsGoldArmor": "Lnet/minecraft/class_4838;method_24719(Lnet/minecraft/class_1309;)Z",
+      "onGuardedBlockInteracted": "Lnet/minecraft/class_4838;method_24733(Lnet/minecraft/class_1657;Z)V"
+    },
+    "moriyashiine/extraorigins/mixin/TargetPredicateAccessor": {
+      "predicate": "field_28405:Ljava/util/function/Predicate;"
+    },
+    "moriyashiine/extraorigins/mixin/PiglinBruteBrainMixin": {
+      "method_30249": "Lnet/minecraft/class_5420;method_30249(Lnet/minecraft/class_5418;Lnet/minecraft/class_4140;)Ljava/util/Optional;"
+    }
+  },
+  "data": {
+    "named:intermediary": {
+      "moriyashiine/extraorigins/mixin/EntityMixin": {
+        "dismountVehicle": "Lnet/minecraft/class_1297;method_29239()V",
+        "Lnet/minecraft/entity/Entity;removePassenger(Lnet/minecraft/entity/Entity;)V": "Lnet/minecraft/class_1297;method_5793(Lnet/minecraft/class_1297;)V",
+        "getMountedHeightOffset": "Lnet/minecraft/class_1297;method_5621()D",
+        "slowMovement": "Lnet/minecraft/class_1297;method_5844(Lnet/minecraft/class_2680;Lnet/minecraft/class_243;)V"
+      },
+      "moriyashiine/extraorigins/mixin/PowderSnowBlockMixin": {
+        "canWalkOnPowderSnow": "Lnet/minecraft/class_5635;method_32355(Lnet/minecraft/class_1297;)Z"
+      },
+      "moriyashiine/extraorigins/mixin/ItemStackMixin": {
+        "getTooltip": "Lnet/minecraft/class_1799;method_7950(Lnet/minecraft/class_1657;Lnet/minecraft/class_1836;)Ljava/util/List;",
+        "Lnet/minecraft/item/ItemStack;getAttributeModifiers(Lnet/minecraft/entity/EquipmentSlot;)Lcom/google/common/collect/Multimap;": "Lnet/minecraft/class_1799;method_7926(Lnet/minecraft/class_1304;)Lcom/google/common/collect/Multimap;",
+        "damage(ILnet/minecraft/entity/LivingEntity;Ljava/util/function/Consumer;)V": "Lnet/minecraft/class_1799;method_7956(ILnet/minecraft/class_1309;Ljava/util/function/Consumer;)V"
+      },
+      "moriyashiine/extraorigins/mixin/EndermanEntityMixin": {
+        "isPlayerStaring": "Lnet/minecraft/class_1560;method_7026(Lnet/minecraft/class_1657;)Z"
+      },
+      "moriyashiine/extraorigins/mixin/ActiveTargetGoalMixin": {
+        "<init>(Lnet/minecraft/entity/mob/MobEntity;Ljava/lang/Class;IZZLjava/util/function/Predicate;)V": "Lnet/minecraft/class_1400;<init>(Lnet/minecraft/class_1308;Ljava/lang/Class;IZZLjava/util/function/Predicate;)V"
+      },
+      "moriyashiine/extraorigins/mixin/PiglinBrainMixin": {
+        "wearsGoldArmor": "Lnet/minecraft/class_4838;method_24719(Lnet/minecraft/class_1309;)Z",
+        "onGuardedBlockInteracted": "Lnet/minecraft/class_4838;method_24733(Lnet/minecraft/class_1657;Z)V"
+      },
+      "moriyashiine/extraorigins/mixin/TargetPredicateAccessor": {
+        "predicate": "field_28405:Ljava/util/function/Predicate;"
+      },
+      "moriyashiine/extraorigins/mixin/PiglinBruteBrainMixin": {
+        "method_30249": "Lnet/minecraft/class_5420;method_30249(Lnet/minecraft/class_5418;Lnet/minecraft/class_4140;)Ljava/util/Optional;"
+      }
+    }
+  }
+}

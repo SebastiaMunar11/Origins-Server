@@ -1,0 +1,32 @@
+{
+  "hidden": false,
+  "type": "origins:active_self",
+  "cooldown": 60,
+  "key": "key.origins.primary_active",
+  "hud_render": {
+    "should_render": true,
+    "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+    "bar_index": 16
+
+  },
+  "entity_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+      "type": "origins:add_velocity",
+      "space": "local",
+      "x": 0,
+      "y": 0,
+      "z": 0.75
+    },
+    {
+			"type": "origins:change_resource",
+			"resource": "v1:bar1",
+			"change": -1
+		}
+    ]
+  },
+  
+  "name": "Dash",
+  "description": "Quickly dash 5 blocks in the direction you are looking. You will not dash if the blocks between there or the endpoint is not air."
+}

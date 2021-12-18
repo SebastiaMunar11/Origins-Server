@@ -1,0 +1,30 @@
+{
+	"type": "origins:stacking_status_effect",
+	"name": "Once a place of worship...",
+	"description": "Once a place for ignorant fools to worship you, Monuments, today engulfed by the Ocean, still echo with a warm restorative energy, drained however by the Elder Guardians living there.",
+	"min_stacks": 0,
+	"max_stacks": 10,
+	"duration_per_stack": 10,
+	"effect": {
+		"effect": "minecraft:regeneration",
+		"amplifier": 1,
+		"is_ambient": true,
+		"show_particles": true,
+		"show_icon": true
+	},
+	"condition": {
+		"type": "origins:and",
+		"conditions": [
+		{
+			"type": "origins:predicate",
+			"predicate": "pos:is_in_monument"
+		},
+		{
+			"type": "origins:command",
+			"command": "execute if entity @e[type=minecraft:elder_guardian, distance=..150]",
+			"comparison": "==",
+			"compare_to": 0
+		}
+		]
+	}
+}

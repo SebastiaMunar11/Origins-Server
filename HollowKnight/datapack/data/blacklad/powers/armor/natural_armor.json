@@ -1,0 +1,16 @@
+{
+	"type": "origins:action_over_time",
+	"entity_action": {
+		"type": "origins:execute_command",
+		"command": "attribute @s minecraft:generic.armor base set 0",
+		"permission_level": 4
+	},
+	"condition": {
+			"type": "origins:resource",
+			"resource": "*:souls",
+			"comparison": "==",
+			"compare_to": 0
+	},
+	"interval": "10",
+	"hidden": true
+}

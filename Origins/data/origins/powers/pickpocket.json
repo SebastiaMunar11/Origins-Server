@@ -1,0 +1,45 @@
+{
+    "name": "Pickpocket",
+    "description": "Steal diamonds jaja.",
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "clear @s minecraft:diamond 1"
+                }
+            },
+            {
+                "type": "origins:actor_action",
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "give @s minecraft:diamond 1"
+                }
+            }
+        ]
+    },
+    "bientity_condition": {
+        "type": "origins:target_condition",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:player"
+                },
+                {
+                    "type": "origins:command",
+                    "command": "clear @s minecraft:diamond 0",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "hands": [
+        "main_hand"
+    ]
+}

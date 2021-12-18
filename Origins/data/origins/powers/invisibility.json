@@ -1,0 +1,62 @@
+{
+  "type":"origins:multiple",
+  "cooldown": 750,
+  "key": {
+    "key": "key.origins.primary_active",
+    "continuous": false
+  },
+  "action": {
+    "type":"origins:and",
+    "actions": [
+      {
+        "type": "origins:apply_effect",
+        "effect": {
+          "effect": "minecraft:invisibility",
+          "duration": 300,
+          "show_particles": false,
+          "show_icon": false
+        }
+      }
+    ]
+
+  }
+}
+
+
+"active_self": {
+  "type":"origins:active_self",
+  "cooldown": 20,
+  "hud_render": {
+    "should_render": false
+  },
+  "condition": {
+    "type": "origins:sneaking"
+  },
+  "entity_action": {
+    "type":"origins:if_else_list",
+    "actions": [
+      {
+        
+      {
+        "action": {
+          "type":"origins:and",
+          "actions": [
+            {
+              "type": "origins:apply_effect",
+              "effect": {
+                "effect": "minecraft:invisibility",
+                "duration": 600,
+                "show_particles": false,
+                "show_icon": false
+              }
+            },
+            {
+              "type":"origins:execute_command",
+              "command":"effect clear @p minecraft:glowing"
+            }
+          ]
+        }
+      }
+    ]
+  }
+},

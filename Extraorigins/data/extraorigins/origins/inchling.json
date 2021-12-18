@@ -1,0 +1,12 @@
+{
+  "powers": [
+	"extraorigins:bite_sized",
+	"extraorigins:nimble",
+	"extraorigins:small_appetite",
+	"origins:climbing",
+	"extraorigins:jockey"
+  ],
+  "icon": "anvil",
+  "order": 1,
+  "impact": 3
+}

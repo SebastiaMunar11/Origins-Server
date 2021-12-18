@@ -1,0 +1,20 @@
+{
+	"type": "origins:action_on_callback",
+	"name": "§dReunited",
+	"description": "You have come to terms with the deepest parts of yourself.",
+	"hidden": true,
+	"entity_action_added": {
+		"type": "origins:if_else",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "blacklad:mountaineer_dash_charges",
+			"comparison": "==",
+			"compare_to": 1
+		},
+		"if_action": {
+			"type": "origins:change_resource",
+			"resource": "blacklad:mountaineer_dash_charges",
+			"change": 1
+		}
+	},
+}

@@ -1,0 +1,39 @@
+{
+    "name": "Pocket Sand",
+    "description": "(Secondary) You throw sand at your enemies to blind them.",
+    "type": "origins:active_self",
+    "cooldown": 400,
+    "key":
+    {
+        "key": "key.origins.secondary_active",
+        "continuous": false
+    },
+    "hud_render":
+    {
+        "should_render": true,
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+        "bar_index": 13
+    },
+    "entity_action":
+    {
+        "type": "origins:and",
+        "actions": 
+		[
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "execute anchored eyes positioned ^ ^ ^2 run effect give @e[distance=..2] minecraft:blindness 5 0 false"
+            },
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "execute anchored eyes positioned ^ ^ ^2 run particle minecraft:falling_dust minecraft:sand ~ ~ ~ .5 .5 .5 0 100 normal"
+            },
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "execute anchored eyes positioned ^ ^ ^2 run playsound minecraft:block.sand.place player @a[distance=..32] ~ ~ ~ 1 1"
+            }
+        ]
+    }
+}

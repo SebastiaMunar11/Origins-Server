@@ -1,0 +1,9 @@
+{
+  "type": "origins:attribute",
+  "modifier": {
+    "name": "Slower speed",
+    "attribute": "minecraft:generic.movement_speed",
+    "value": -0.125,
+    "operation": "multiply_base"
+  }
+}

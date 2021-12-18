@@ -1,0 +1,20 @@
+{
+	"loading_priority": 100,
+	"powers": [
+		"origins:dash_orni",
+		"origins:fresh_air",
+		"origins:vegetarian",
+		"origins:elytra",
+		"origins:launch_into_air",
+		"origins:aerial_combatant",
+		"origins:light_armor",
+		"origins:claustrophobia",
+		"origins:lay_eggs",
+		"origins:flammable",
+		"origins:like_air"
+	],
+	"icon": "minecraft:feather",
+	"order": 0,
+	"impact": 2,
+	"name": "Orni"
+}

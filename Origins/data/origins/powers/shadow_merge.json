@@ -1,0 +1,168 @@
+{
+    "name": "Shadow Merge",
+    "description": "The darker it gets, the more invisible you become.",
+    "hidden": false,
+    "type": "origins:multiple",
+    "1":
+    {
+        "type": "origins:model_color",
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "alpha": 1,
+        "condition":
+        {
+            "type": "origins:brightness",
+            "inverted": false,
+            "comparison": "<=",
+            "compare_to": 1
+        }
+    },
+    "0.9":
+    {
+        "type": "origins:model_color",
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "alpha": 0.9,
+        "condition":
+        {
+            "type": "origins:brightness",
+            "inverted": false,
+            "comparison": "<=",
+            "compare_to": 0.9
+        }
+    },
+    "0.8":
+    {
+        "type": "origins:model_color",
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "alpha": 0.8,
+        "condition":
+        {
+            "type": "origins:brightness",
+            "inverted": false,
+            "comparison": "<=",
+            "compare_to": 0.8
+        }
+    },
+    "0.7":
+    {
+        "type": "origins:model_color",
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "alpha": 0.7,
+        "condition":
+        {
+            "type": "origins:brightness",
+            "inverted": false,
+            "comparison": "<=",
+            "compare_to": 0.7
+        }
+    },
+    "0.6":
+    {
+        "type": "origins:model_color",
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "alpha": 0.6,
+        "condition":
+        {
+            "type": "origins:brightness",
+            "inverted": false,
+            "comparison": "<=",
+            "compare_to": 0.6
+        }
+    },
+    "0.5":
+    {
+        "type": "origins:model_color",
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "alpha": 0.5,
+        "condition":
+        {
+            "type": "origins:brightness",
+            "inverted": false,
+            "comparison": "<=",
+            "compare_to": 0.5
+        }
+    },
+    "0.4":
+    {
+        "type": "origins:model_color",
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "alpha": 0.4,
+        "condition":
+        {
+            "type": "origins:brightness",
+            "inverted": false,
+            "comparison": "<=",
+            "compare_to": 0.4
+        }
+    },
+    "0.3":
+    {
+        "type": "origins:model_color",
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "alpha": 0.3,
+        "condition":
+        {
+            "type": "origins:brightness",
+            "inverted": false,
+            "comparison": "<=",
+            "compare_to": 0.3
+        }
+    },
+    "0.2":
+    {
+        "type": "origins:model_color",
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "alpha": 0.2,
+        "condition":
+        {
+            "type": "origins:brightness",
+            "inverted": false,
+            "comparison": "<=",
+            "compare_to": 0.2
+        }
+    },
+    "0.1":
+    {
+        "type": "origins:model_color",
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "alpha": 0.1,
+        "condition":
+        {
+            "type": "origins:brightness",
+            "inverted": false,
+            "comparison": "<=",
+            "compare_to": 0.1
+        }
+    },
+    "0":
+    {
+        "type": "origins:invisibility",
+        "condition":
+        {
+            "type": "origins:brightness",
+            "inverted": false,
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "render_armor": false
+    }
+}

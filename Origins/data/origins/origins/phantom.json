@@ -1,0 +1,18 @@
+{
+	"powers": [
+		
+		"origins:adaptation",
+		"origins:hunger_over_time",
+		"origins:pickpocket",
+		"origins:pocket_sand",
+		"origins:pumpkin_hate",
+		"origins:fragile"
+
+	],
+	"icon": {
+		"item": "minecraft:phantom_membrane"
+	},
+	"order": 2,
+	"impact": 1,
+	"name": "Phantom"
+}

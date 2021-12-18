@@ -1,0 +1,292 @@
+{
+  "type":"origins:multiple",
+  "bar": {
+    "type": "origins:resource",
+    "min": 0,
+    "max": 7,
+    "hud_render": {
+        "should_render": true,
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+        "bar_index": 20,
+        "condition": {
+          "type": "origins:sneaking"
+        }
+     }
+  },
+  "light_checker": {
+    "type":"origins:action_over_time",
+    "interval": 3,
+    "condition": {
+      "type": "origins:sneaking"
+    },
+    "entity_action": {
+      "type":"origins:if_else_list",
+      "actions": [
+        {
+          "condition": {
+            "type": "origins:brightness",
+            "comparison": "<=",
+            "compare_to": 0.2
+          },
+          "action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_bar",
+            "change": -7
+          }
+        },
+        {
+          "condition": {
+            "type": "origins:brightness",
+            "comparison": "<=",
+            "compare_to": 0.3
+          },
+          "action": {
+            "type":"origins:and",
+            "actions": [
+              {
+                "type": "origins:change_resource",
+                "resource": "*:*_bar",
+                "change": -7
+              },
+              {
+                "type": "origins:change_resource",
+                "resource": "*:*_bar",
+                "change": 1
+              }
+            ]
+          }
+        },
+        {
+          "condition": {
+            "type": "origins:brightness",
+            "comparison": "<=",
+            "compare_to": 0.4
+          },
+          "action": {
+            "type":"origins:and",
+            "actions": [
+              {
+                "type": "origins:change_resource",
+                "resource": "*:*_bar",
+                "change": -7
+              },
+              {
+                "type": "origins:change_resource",
+                "resource": "*:*_bar",
+                "change": 2
+              }
+            ]
+          }
+        },
+        {
+          "condition": {
+            "type": "origins:brightness",
+            "comparison": "<=",
+            "compare_to": 0.5
+          },
+          "action": {
+            "type":"origins:and",
+            "actions": [
+              {
+                "type": "origins:change_resource",
+                "resource": "*:*_bar",
+                "change": -7
+              },
+              {
+                "type": "origins:change_resource",
+                "resource": "*:*_bar",
+                "change": 3
+              }
+            ]
+          }
+        },
+        {
+          "condition": {
+            "type": "origins:brightness",
+            "comparison": "<=",
+            "compare_to": 0.6
+          },
+          "action": {
+            "type":"origins:and",
+            "actions": [
+              {
+                "type": "origins:change_resource",
+                "resource": "*:*_bar",
+                "change": -7
+              },
+              {
+                "type": "origins:change_resource",
+                "resource": "*:*_bar",
+                "change": 4
+              }
+            ]
+          }
+        },
+        {
+          "condition": {
+            "type": "origins:brightness",
+            "comparison": "<=",
+            "compare_to": 0.7
+          },
+          "action": {
+            "type":"origins:and",
+            "actions": [
+              {
+                "type": "origins:change_resource",
+                "resource": "*:*_bar",
+                "change": -7
+              },
+              {
+                "type": "origins:change_resource",
+                "resource": "*:*_bar",
+                "change": 5
+              }
+            ]
+          }
+        },
+        {
+          "condition": {
+            "type": "origins:brightness",
+            "comparison": "<=",
+            "compare_to": 0.8
+          },
+          "action": {
+            "type":"origins:and",
+            "actions": [
+              {
+                "type": "origins:change_resource",
+                "resource": "*:*_bar",
+                "change": -7
+              },
+              {
+                "type": "origins:change_resource",
+                "resource": "*:*_bar",
+                "change": 6
+              }
+            ]
+          }
+        },
+        {
+          "condition": {
+            "type": "origins:brightness",
+            "comparison": ">",
+            "compare_to": 0.8
+          },
+          "action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_bar",
+                "change": 7
+          }
+        }
+      ]
+    }
+  },
+  "active_self": {
+    "type":"origins:active_self",
+    "cooldown": 1050,
+    "hud_render": {
+      "should_render": false
+    },
+    "condition": {
+      "type": "origins:sneaking"
+    },
+    "entity_action": {
+      "type":"origins:if_else_list",
+      "actions": [
+        {
+          "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_bar",
+            "comparison": "==",
+            "compare_to": 0
+          },
+          "action": {
+            "type":"origins:and",
+            "actions": [
+              {
+                "type": "origins:apply_effect",
+                "effect": {
+                  "effect": "minecraft:glowing",
+                  "duration": 600,
+                  "show_particles": true,
+                  "show_icon": true
+                }
+
+              },
+              {
+                "type":"origins:execute_command",
+                "command":"effect clear @p minecraft:invisibility"
+              },
+              {
+                "type":"origins:execute_command",
+                "command":"effect give @p minecraft:strength 15"
+              }
+              
+              
+            ]
+          }
+        },
+        {
+          "condition": {
+            "type":"origins:and",
+            "conditions": [
+              {
+                "type": "origins:resource",
+                "resource": "*:*_bar",
+                "comparison": ">",
+                "compare_to": 0
+              },
+              {
+                "type": "origins:resource",
+                "resource": "*:*_bar",
+                "comparison": "<",
+                "compare_to": 7
+              }
+            ]
+          },
+          "action": {
+            "type":"origins:and",
+            "actions": [
+             {
+              "type":"origins:execute_command",
+              "command":"tellraw @p [{\"text\":\"Your bar needs to be full or empty in order to \",\"color\":\"blue\"},{\"text\":\"vanish\",\"color\":\"gray\"},{\"text\":\"/\",\"color\":\"blue\"},{\"text\":\"glow\",\"color\":\"gold\"}]"
+             },
+             {
+              "type":"origins:execute_command",
+              "command":"playsound minecraft:block.anvil.land ambient @p ~ ~ ~ 10 2"
+             }
+            ]
+          }
+        },
+        {
+          "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_bar",
+            "comparison": "==",
+            "compare_to": 7
+          },
+          "action": {
+            "type":"origins:and",
+            "actions": [
+              {
+                "type": "origins:apply_effect",
+                "effect": {
+                  "effect": "minecraft:invisibility",
+                  "duration": 300,
+                  "show_particles": false,
+                  "show_icon": true
+                }
+              },
+              {
+                "type":"origins:execute_command",
+                "command":"effect clear @p minecraft:glowing"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "name":"Adaptation",
+  "description":"When activating the power, the more you should be able to be seen, the harder it is, but, when it should be almost impossible to see you, you will be easily seen"
+}

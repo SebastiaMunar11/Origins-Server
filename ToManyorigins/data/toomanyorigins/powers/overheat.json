@@ -1,0 +1,26 @@
+{
+  "type": "toomanyorigins:rocket_jump",
+  "cooldown": 7,
+  "hud_render": {
+    "should_render": true,
+    "sprite_location": "toomanyorigins:textures/gui/tmo_resource_bar.png",
+    "bar_index": 5
+  },
+  "source": {
+    "name": "overheat",
+    "bypasses_armor": "false",
+    "fire": "true",
+    "unblockable": "true"
+  },
+  "key": {
+    "key": "key.origins.primary_active",
+    "continuous": false
+  },
+  "charged_modifier": {
+    "operation": "multiply_base",
+    "value": 1
+  },
+  "amount": 3.0,
+  "use_charged": true,
+  "speed": 2.0
+}

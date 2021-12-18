@@ -1,0 +1,30 @@
+{
+  "mappings": {
+    "io/github/merchantpug/toomanyorigins/mixin/LivingEntityMixin": {
+      "onDeath": "Lnet/minecraft/class_1309;method_6078(Lnet/minecraft/class_1282;)V",
+      "canHaveStatusEffect": "Lnet/minecraft/class_1309;method_6049(Lnet/minecraft/class_1293;)Z"
+    },
+    "io/github/merchantpug/toomanyorigins/mixin/BlockMixin": {
+      "onPlaced": "Lnet/minecraft/class_2248;method_9567(Lnet/minecraft/class_1937;Lnet/minecraft/class_2338;Lnet/minecraft/class_2680;Lnet/minecraft/class_1309;Lnet/minecraft/class_1799;)V"
+    },
+    "io/github/merchantpug/toomanyorigins/mixin/DragonFireballEntityMixin": {
+      "Lnet/minecraft/entity/effect/StatusEffectInstance;<init>(Lnet/minecraft/entity/effect/StatusEffect;II)V": "Lnet/minecraft/class_1293;<init>(Lnet/minecraft/class_1291;II)V",
+      "onCollision": "Lnet/minecraft/class_1670;method_7488(Lnet/minecraft/class_239;)V"
+    }
+  },
+  "data": {
+    "named:intermediary": {
+      "io/github/merchantpug/toomanyorigins/mixin/LivingEntityMixin": {
+        "onDeath": "Lnet/minecraft/class_1309;method_6078(Lnet/minecraft/class_1282;)V",
+        "canHaveStatusEffect": "Lnet/minecraft/class_1309;method_6049(Lnet/minecraft/class_1293;)Z"
+      },
+      "io/github/merchantpug/toomanyorigins/mixin/BlockMixin": {
+        "onPlaced": "Lnet/minecraft/class_2248;method_9567(Lnet/minecraft/class_1937;Lnet/minecraft/class_2338;Lnet/minecraft/class_2680;Lnet/minecraft/class_1309;Lnet/minecraft/class_1799;)V"
+      },
+      "io/github/merchantpug/toomanyorigins/mixin/DragonFireballEntityMixin": {
+        "Lnet/minecraft/entity/effect/StatusEffectInstance;<init>(Lnet/minecraft/entity/effect/StatusEffect;II)V": "Lnet/minecraft/class_1293;<init>(Lnet/minecraft/class_1291;II)V",
+        "onCollision": "Lnet/minecraft/class_1670;method_7488(Lnet/minecraft/class_239;)V"
+      }
+    }
+  }
+}

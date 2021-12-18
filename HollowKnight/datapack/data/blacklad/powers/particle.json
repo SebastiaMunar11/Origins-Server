@@ -1,0 +1,15 @@
+{
+	"type": "origins:action_over_time",
+	"entity_action": {
+		"type": "origins:execute_command",
+		"command": "particle minecraft:dust 0 0 0 2 ~ ~ ~ 0.5 0.7 0.5 0 5 normal",
+		"permission_level": 4
+	},
+	"condition": {
+			"type": "origins:health",
+			"comparison": "<",
+			"compare_to": 5
+	},
+	"interval": "10",
+	"hidden": true
+}

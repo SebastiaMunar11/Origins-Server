@@ -1,0 +1,9 @@
+{
+    "type": "origins:shaking",
+    "condition": {
+			"type": "origins:health",
+			"comparison": "<",
+			"compare_to": 5
+	},
+	"hidden": true
+}

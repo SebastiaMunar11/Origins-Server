@@ -1,0 +1,19 @@
+{
+	"powers": [
+		"origins:frost",
+		"origins:frost_walker",
+		"origins:dragon_breath",
+		"origins:pumpkin_hate",
+		"origins:extra_reach",
+		"origins:ender_particles",
+		"origins:cacoon",
+		"origins:fireball",
+		"origins:damage_from_potions"
+	],
+	"icon": {
+		"item": "minecraft:enchanted_book"
+	},
+	"order": 1,
+	"impact": 2,
+	"name": "Mage"
+}

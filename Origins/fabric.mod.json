@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "origins",
+  "version": "1.3.0",
+  "name": "Origins",
+  "description": "This mod adds several origins with passive abilities to the game, which you can choose from at the beginning of the game.",
+  "authors": [
+    "Apace"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/origins",
+    "sources": "https://github.com/apace100/origins-fabric",
+    "issues": "https://github.com/apace100/origins-fabric/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/origins/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.apace100.origins.Origins"
+    ],
+    "client": [
+      "io.github.apace100.origins.OriginsClient"
+    ],
+    "modmenu": [
+      "io.github.apace100.origins.integration.ModMenuIntegration"
+    ],
+    "cardinal-components-entity": [
+      "io.github.apace100.origins.registry.ModComponents"
+    ]
+  },
+  "mixins": [
+    "origins.mixins.json"
+  ],
+  "custom": {
+    "cardinal-components": [
+      "origins:origin"
+    ]
+  },
+  "depends": {
+    "java": "\u003e\u003d17",
+    "fabricloader": "\u003e\u003d0.12.3",
+    "fabric": "\u003e\u003d0.43.0",
+    "minecraft": "1.18.x",
+    "apoli": "\u003e\u003d2.1.0-beta.1",
+    "calio": "\u003e\u003d1.4.1",
+    "reach-entity-attributes": "\u003e\u003d2.1.1",
+    "playerabilitylib": "\u003e\u003d1.3.0",
+    "cardinal-components-base": "\u003e\u003d3.0.0",
+    "cardinal-components-entity": "\u003e\u003d3.0.0",
+    "cloth-config2": "\u003e\u003d5.0.0"
+  },
+  "breaks": {
+    "optifabric": "\u003c\u003d1.11.18",
+    "identity": "\u003c1.14.2-beta"
+  },
+  "jars": [
+    {
+      "file": "META-INF/jars/apoli-v2.2.0.jar"
+    },
+    {
+      "file": "META-INF/jars/reach-entity-attributes-2.1.1.jar"
+    }
+  ]
+}

@@ -1,0 +1,333 @@
+{
+	"type": "origins:multiple",
+
+	"holding_forward": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 2,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	"update_holding_forward": {
+		"type": "origins:active_self",
+		"key": {
+			"key": "key.forward",
+			"continuous": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "alluyslutil:input_holding_forward",
+			"change": 2
+		},
+		"hud_render": {
+			"should_render": false
+		},
+		"cooldown": 1
+	},
+
+	"holding_backward": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 2,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	"update_holding_backward": {
+		"type": "origins:active_self",
+		"key": {
+			"key": "key.back",
+			"continuous": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "alluyslutil:input_holding_backward",
+			"change": 2
+		},
+		"hud_render": {
+			"should_render": false
+		},
+		"cooldown": 1
+	},
+
+	"holding_left": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 2,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	"update_holding_left": {
+		"type": "origins:active_self",
+		"key": {
+			"key": "key.left",
+			"continuous": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "alluyslutil:input_holding_left",
+			"change": 2
+		},
+		"hud_render": {
+			"should_render": false
+		},
+		"cooldown": 1
+	},
+
+	"holding_right": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 2,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"update_holding_right": {
+		"type": "origins:active_self",
+		"key": {
+			"key": "key.right",
+			"continuous": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "alluyslutil:input_holding_right",
+			"change": 2
+		},
+		"hud_render": {
+			"should_render": false
+		},
+		"cooldown": 1
+	},
+
+	"holding_jump": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 2,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	"update_holding_jump": {
+		"type": "origins:active_self",
+		"key": {
+			"key": "key.jump",
+			"continuous": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "alluyslutil:input_holding_jump",
+			"change": 2
+		},
+		"hud_render": {
+			"should_render": false
+		},
+		"cooldown": 1
+	},
+
+	"holding_sneak": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 2,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	"update_holding_sneak": {
+		"type": "origins:active_self",
+		"key": {
+			"key": "key.sneak",
+			"continuous": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "alluyslutil:input_holding_sneak",
+			"change": 2
+		},
+		"hud_render": {
+			"should_render": false
+		},
+		"cooldown": 1
+	},
+
+	"decay_holding": {
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "alluyslutil:input_holding_forward",
+					"change": -1
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "alluyslutil:input_holding_backward",
+					"change": -1
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "alluyslutil:input_holding_left",
+					"change": -1
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "alluyslutil:input_holding_right",
+					"change": -1
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "alluyslutil:input_holding_jump",
+					"change": -1
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "alluyslutil:input_holding_sneak",
+					"change": -1
+				}
+			]
+		}
+	},
+	
+	"axis_x": {
+		"type": "origins:resource",
+		"min": -1,
+		"max": 1,
+		"hud_render": {
+			"should_render": false,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+			"bar_index": 23
+		}
+	},
+	"axis_y": {
+		"type": "origins:resource",
+		"min": -1,
+		"max": 1,
+		"hud_render": {
+			"should_render": false,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+			"bar_index": 14
+		}
+	},
+	"axis_z": {
+		"type": "origins:resource",
+		"min": -1,
+		"max": 1,
+		"hud_render": {
+			"should_render": false,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+			"bar_index": 12
+		}
+	},
+
+	"update_axes": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "resource set @s alluyslutil:input_axis_x 0"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "resource set @s alluyslutil:input_axis_y 0"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "resource set @s alluyslutil:input_axis_z 0"
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "alluyslutil:input_holding_forward",
+						"comparison": ">",
+						"compare_to": 0
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "alluyslutil:input_axis_z",
+						"change": 1
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "alluyslutil:input_holding_backward",
+						"comparison": ">",
+						"compare_to": 0
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "alluyslutil:input_axis_z",
+						"change": -1
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "alluyslutil:input_holding_left",
+						"comparison": ">",
+						"compare_to": 0
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "alluyslutil:input_axis_x",
+						"change": -1
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "alluyslutil:input_holding_right",
+						"comparison": ">",
+						"compare_to": 0
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "alluyslutil:input_axis_x",
+						"change": 1
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "alluyslutil:input_holding_jump",
+						"comparison": ">",
+						"compare_to": 0
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "alluyslutil:input_axis_y",
+						"change": 1
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "alluyslutil:input_holding_sneak",
+						"comparison": ">",
+						"compare_to": 0
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "alluyslutil:input_axis_y",
+						"change": -1
+					}
+				}
+			]
+		}
+	},
+
+	"hidden": true
+}

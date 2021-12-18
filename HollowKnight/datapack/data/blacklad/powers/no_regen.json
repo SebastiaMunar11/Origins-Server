@@ -1,0 +1,5 @@
+{
+	"type": "origins:disable_regen",
+	"name": "No regen",
+	"description": "You can't regenerate even when saturated."
+}

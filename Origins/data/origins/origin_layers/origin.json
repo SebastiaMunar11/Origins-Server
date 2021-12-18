@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "order": 0,
+  "enabled": true,
+  "origins": [
+    "origins:arachnid",
+    "origins:orni",
+    "origins:mage",
+    "origins:merling",
+    "origins:phantom",
+    "origins:goron"
+  ],
+  "allow_random": true,
+  "exclude_random": [
+    "origins:human"
+  ],
+  "allow_random_unchoosable": false,
+  "hidden": false
+}

@@ -1,0 +1,55 @@
+{
+	"type": "origins:multiple",
+	"hidden": true,
+	"charge": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "hud_render": {
+            "should_render": false,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 4
+        }
+    },
+    "recharge": {
+        "type": "origins:action_on_land",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:wonarch_wings_charge",
+            "change": 3
+        }
+    },
+    "jump": {
+        "type": "origins:launch",
+        "cooldown": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "sound": "minecraft:entity.parrot.fly",
+        "speed": 0.7,
+        "key": {
+            "key": "key.jump"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:wonarch_wings_charge",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "consume_charge": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:wonarch_wings_charge",
+            "change": -1
+        },
+        "key": {
+            "key": "key.jump"
+        },
+        "cooldown": 0,
+        "hud_render": {
+            "should_render":false
+        }
+    }
+}

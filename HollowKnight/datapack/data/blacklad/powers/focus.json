@@ -1,0 +1,77 @@
+{
+	"type": "origins:active_self",
+	"name": "(Focus)",
+	"description": "collected SOUL to repair your shell and heal damage.\nWhen you hit a mob, you gain a soul bar.\n[sneak + Primary] will heal you 1 heart but you lose 2 soul bars.",
+	"condition": {
+		"type": "origins:sneaking",
+		"inverted": false
+	},
+	"key": {
+		"key": "key.origins.primary_active"
+	},
+	"entity_action": {
+		"type": "origins:if_else",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "blacklad:souls",
+			"comparison": "<",
+			"compare_to": 2
+		},
+		"if_action": {
+			"type": "origins:extinguish"
+		},
+		"else_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:change_resource",
+					"resource": "blacklad:souls",
+					"change": -2
+				},
+				{
+					"type": "origins:heal",
+					"amount": 2
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:execute_command",
+						"command": "execute at @s run playsound minecraft:block.beacon.activate master @a[distance=..15] ~ ~ ~ 1 2",
+						"permission_level": 4
+					}
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:execute_command",
+						"command": "execute at @s run playsound minecraft:block.beacon.power_select master @a[distance=..15] ~ ~ ~ 1 2",
+						"permission_level": 4
+					}
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:execute_command",
+						"command": "execute at @s run particle minecraft:end_rod ~ ~0.5 ~ 0 0 0 0.1 20 force",
+						"permission_level": 4
+					}
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:execute_command",
+						"command": "execute at @s run particle minecraft:soul ~ ~0.5 ~ 0 0 0 0.1 5 force",
+						"permission_level": 4
+					}
+				}
+			]
+		}
+	},
+	"cooldown": 20,
+	"hud_render": {
+		"should_render": false
+	}
+}

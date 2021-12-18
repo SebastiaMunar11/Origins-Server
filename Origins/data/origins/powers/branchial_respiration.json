@@ -1,0 +1,16 @@
+{
+	"type": "origins:action_over_time",
+	"entity_action": {
+		"type": "origins:gain_air",
+		"value": 20
+	},
+	"interval": 10,
+	"condition": {
+		"type": "origins:fluid_height",
+		"fluid": "minecraft:water",
+		"comparison": "!=",
+		"compare_to": 0
+	},
+	"name": "Branchial respiration",
+	"description": "The gills filter out oxygen from the water around you."
+}

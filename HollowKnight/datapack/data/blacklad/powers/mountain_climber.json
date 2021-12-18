@@ -1,0 +1,684 @@
+{
+	"type": "origins:multiple",
+	"name": "(Mantis Claw)",
+	"description": "Allows to climb walls and leap off of them. [sneak to climb / jump to leap off, Save HotBar to deactivate or activate]",
+	"stamina": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 2200,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 9,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "blacklad:mountain_climber_stamina",
+				"comparison": "<",
+				"compare_to": 2200
+			}
+		}
+	},
+
+	"tired": {
+		"type": "origins:simple",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "blacklad:mountain_climber_stamina",
+			"comparison": "<=",
+			"compare_to": 400
+		}
+	},
+
+	"no_grab": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"comment": "Used to prevent starting grabs when tired"
+	},
+
+	"climb": {
+		"type": "origins:climbing",
+		"comment": "Overly complicated due to climbing powers being funky",
+		"hold_condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "blacklad:mountain_climber_stamina",
+					"comparison": ">",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:or",
+					"conditions": [{
+							"type": "origins:block_collision",
+							"offset_x": 0.01,
+							"offset_z": 0.01,
+							"offset_y": 0
+						},
+						{
+							"type": "origins:block_collision",
+							"offset_x": -0.01,
+							"offset_z": -0.01,
+							"offset_y": 0
+						}
+					]
+				},
+				{
+					"type": "origins:resource",
+					"resource": "blacklad:mountain_climber_wall_jumping",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "blacklad:mountain_climber_climb_jumping",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "blacklad:mountain_climber_no_grab",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		},
+
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:collided_horizontally"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "blacklad:mountain_climber_stamina",
+					"comparison": ">",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "blacklad:mountain_climber_no_grab",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+
+	"colliding": {
+		"type": "origins:simple",
+		"condition": {
+			"type": "origins:or",
+			"conditions": [{
+					"type": "origins:block_collision",
+					"offset_x": 0.01,
+					"offset_z": 0.01,
+					"offset_y": 0
+				},
+				{
+					"type": "origins:block_collision",
+					"offset_x": -0.01,
+					"offset_z": -0.01,
+					"offset_y": 0
+				}
+			]
+		}
+	},
+
+	"recently_climbed": {
+		"type": "origins:cooldown",
+		"cooldown": 8,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"climbing": {
+		"type": "origins:simple",
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "blacklad:mountain_climber_stamina",
+					"comparison": ">",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:power_active",
+					"power": "blacklad:mountain_climber_colliding"
+				}
+			]
+		}
+	},
+
+	"flash_state": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"condition": {
+		"type": "origins:resource",
+		"resource": "blacklad:mountain_climber_flash_state",
+		"comparison": "==",
+		"compare_to": 1
+	},
+
+	"jump_toggle": {
+		"type": "origins:toggle",
+		"active_by_default": true,
+		"key": {
+			"key": "key.saveToolbarActivator"
+		}
+	},
+
+	"wall_jumping": {
+		"type": "origins:cooldown",
+		"cooldown": 8,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"climb_jumping": {
+		"type": "origins:cooldown",
+		"cooldown": 8,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"wall_jump": {
+		"type": "origins:active_self",
+		"cooldown": 1,
+		"key": {
+			"key": "key.jump"
+		},
+		"hud_render": {
+			"should_render": false
+		},
+
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:trigger_cooldown",
+					"power": "blacklad:mountain_climber_wall_jumping"
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:or",
+						"conditions": [{
+								"type": "origins:resource",
+								"resource": "alluyslutil:input_axis_x",
+								"comparison": "!=",
+								"compare_to": 0
+							},
+							{
+								"type": "origins:resource",
+								"resource": "alluyslutil:input_axis_z",
+								"comparison": "!=",
+								"compare_to": 0
+							}
+						]
+					},
+
+					"if_action": {
+						"comment": "Normal wall jump",
+
+						"type": "origins:and",
+						"actions": [{
+								"type": "origins:add_velocity",
+								"y": 0.625,
+								"set": true
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:block_collision",
+									"offset_x": 0,
+									"offset_y": 0,
+									"offset_z": -0.01
+								},
+								"if_action": {
+									"type": "origins:add_velocity",
+									"z": 0.375
+								}
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:block_collision",
+									"offset_x": 0,
+									"offset_y": 0,
+									"offset_z": 0.01
+								},
+								"if_action": {
+									"type": "origins:add_velocity",
+									"z": -0.375
+								}
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:block_collision",
+									"offset_x": -0.01,
+									"offset_y": 0,
+									"offset_z": 0
+								},
+								"if_action": {
+									"type": "origins:add_velocity",
+									"x": 0.375
+								}
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:block_collision",
+									"offset_x": 0.01,
+									"offset_y": 0,
+									"offset_z": 0
+								},
+								"if_action": {
+									"type": "origins:add_velocity",
+									"x": -0.375
+								}
+							}
+						]
+
+					},
+
+					"else_action": {
+						"comment": "Neutral wall jump",
+
+						"type": "origins:and",
+						"actions": [{
+								"type": "origins:add_velocity",
+								"y": 0.4375,
+								"set": true
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:block_collision",
+									"offset_x": 0,
+									"offset_y": 0,
+									"offset_z": -0.01
+								},
+								"if_action": {
+									"type": "origins:add_velocity",
+									"z": 0.075
+								}
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:block_collision",
+									"offset_x": 0,
+									"offset_y": 0,
+									"offset_z": 0.01
+								},
+								"if_action": {
+									"type": "origins:add_velocity",
+									"z": -0.075
+								}
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:block_collision",
+									"offset_x": -0.01,
+									"offset_y": 0,
+									"offset_z": 0
+								},
+								"if_action": {
+									"type": "origins:add_velocity",
+									"x": 0.075
+								}
+							},
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:block_collision",
+									"offset_x": 0.01,
+									"offset_y": 0,
+									"offset_z": 0
+								},
+								"if_action": {
+									"type": "origins:add_velocity",
+									"x": -0.075
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "particle minecraft:cloud ~ ~ ~ 0.1 0.1 0.1 0 1 normal"
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:block.stone.step",
+					"volume": 0.25,
+					"pitch": 1.25
+				}
+			]
+		},
+
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:power_active",
+					"power": "blacklad:mountain_climber_colliding"
+				},
+				{
+					"type": "origins:or",
+					"conditions": [{
+							"type": "origins:sneaking"
+						},
+						{
+							"type": "origins:power_active",
+							"power": "blacklad:mountain_climber_jump_toggle"
+						}
+					]
+				}
+			]
+		}
+	},
+
+	"climb_jump": {
+		"type": "origins:active_self",
+		"cooldown": 2,
+		"key": {
+			"key": "key.sprint"
+		},
+		"hud_render": {
+			"should_render": false
+		},
+
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:trigger_cooldown",
+					"power": "blacklad:mountain_climber_climb_jumping"
+				},
+				{
+					"type": "origins:and",
+					"actions": [{
+							"type": "origins:change_resource",
+							"resource": "blacklad:mountain_climber_stamina",
+							"change": -550
+						},
+						{
+							"type": "origins:add_velocity",
+							"y": 0.375,
+							"set": true
+						}
+					]
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "particle minecraft:cloud ~ ~ ~ 0.1 0.1 0.1 0 1 normal"
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:block.stone.step",
+					"volume": 0.25,
+					"pitch": 1.25
+				}
+			]
+		},
+
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:power_active",
+					"power": "blacklad:mountain_climber_climbing"
+				},
+				{
+					"type": "origins:or",
+					"conditions": [{
+							"type": "origins:sneaking"
+						},
+						{
+							"type": "origins:power_active",
+							"power": "blacklad:mountain_climber_jump_toggle"
+						}
+					]
+				}
+			]
+		}
+	},
+
+	"climb_sound": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 4,
+		"hud_render": {
+			"should_render": false
+		},
+
+		"max_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:play_sound",
+					"sound": "minecraft:block.stone.step",
+					"volume": 0.25,
+					"pitch": 1.25
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "blacklad:mountain_climber_climb_sound",
+					"change": -4
+				}
+			]
+		}
+	},
+
+	"update": {
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:if_else_list",
+					"actions": [{
+							"condition": {
+								"type": "origins:block_collision",
+								"offset_x": 0,
+								"offset_y": -0.001,
+								"offset_z": 0
+							},
+							"action": {
+								"type": "origins:change_resource",
+								"comment": "Reload stamina when on ground",
+								"resource": "blacklad:mountain_climber_stamina",
+								"change": 2200
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [{
+										"type": "origins:power_active",
+										"power": "blacklad:mountain_climber_climbing"
+									},
+									{
+										"type": "origins:resource",
+										"resource": "blacklad:mountain_climber_climb_jumping",
+										"comparison": "==",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:or",
+									"conditions": [{
+											"type": "origins:resource",
+											"resource": "alluyslutil:input_axis_x",
+											"comparison": "!=",
+											"compare_to": 0
+										},
+										{
+											"type": "origins:resource",
+											"resource": "alluyslutil:input_axis_z",
+											"comparison": "!=",
+											"compare_to": 0
+										}
+									]
+								},
+
+								"if_action": {
+									"comment": "Climbing (actively, moving)",
+
+									"type": "origins:and",
+									"actions": [{
+											"type": "origins:change_resource",
+											"resource": "blacklad:mountain_climber_stamina",
+											"change": -91
+										},
+										{
+											"type": "origins:change_resource",
+											"resource": "blacklad:mountain_climber_climb_sound",
+											"change": 1
+										},
+										{
+											"type": "origins:chance",
+											"chance": 0.25,
+											"action": {
+												"type": "origins:execute_command",
+												"command": "particle minecraft:dust 1 1 1 1 ~ ~0.6 ~ 0.1 0.1 0.1 0.125 4 normal"
+											}
+										}
+									]
+								},
+
+								"else_action": {
+									"comment": "Holding a climb",
+
+									"type": "origins:and",
+									"actions": [{
+											"type": "origins:change_resource",
+											"resource": "blacklad:mountain_climber_stamina",
+											"change": -20
+										},
+										{
+											"type": "origins:chance",
+											"chance": 0.125,
+											"action": {
+												"type": "origins:execute_command",
+												"command": "particle minecraft:dust 1 1 1 0.5 ~ ~1 ~ 0.1 0.1 0.1 0.125 2 normal"
+											}
+										}
+									]
+								}
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:power_active",
+						"power": "blacklad:mountain_climber_tired",
+						"inverted": true
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [{
+								"type": "origins:change_resource",
+								"resource": "blacklad:mountain_climber_no_grab",
+								"change": -1
+							},
+							{
+								"type": "origins:change_resource",
+								"resource": "blacklad:mountain_climber_flash_state",
+								"change": -1
+							}
+						]
+					},
+					"else_action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:power_active",
+							"power": "blacklad:mountain_climber_climbing"
+						},
+						"if_action": {
+							"type": "origins:if_else",
+							"condition": {
+								"type": "origins:or",
+								"conditions": [{
+										"type": "origins:resource",
+										"resource": "blacklad:mountain_climber_stamina",
+										"comparison": "==",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "blacklad:mountain_climber_flash_state",
+										"comparison": "==",
+										"compare_to": 0
+									}
+								]
+							},
+							"if_action": {
+								"type": "origins:change_resource",
+								"resource": "blacklad:mountain_climber_flash_state",
+								"change": 1
+							},
+							"else_action": {
+								"type": "origins:change_resource",
+								"resource": "blacklad:mountain_climber_flash_state",
+								"change": -1
+							}
+						},
+						"else_action": {
+							"type": "origins:and",
+							"actions": [{
+									"type": "origins:change_resource",
+									"resource": "blacklad:mountain_climber_no_grab",
+									"change": 1
+								},
+								{
+									"type": "origins:change_resource",
+									"resource": "blacklad:mountain_climber_flash_state",
+									"change": -1
+								}
+							]
+						}
+					}
+				},
+
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:power_active",
+						"power": "blacklad:mountain_climber_climbing"
+					},
+					"if_action": {
+						"type": "origins:trigger_cooldown",
+						"power": "blacklad:mountain_climber_recently_climbed",
+						"comment": "Used to prevent issues with the spring power"
+					}
+				}
+			]
+		}
+	}
+}

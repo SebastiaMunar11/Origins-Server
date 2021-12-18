@@ -1,0 +1,19 @@
+{
+	"powers": [
+		"toomanyorigins:overheat",
+		"toomanyorigins:conductor",
+		"toomanyorigins:blast_immunity",
+		"toomanyorigins:bunny_hop",
+		"toomanyorigins:bunny_hop_active",
+		"toomanyorigins:photophobia",
+		"toomanyorigins:sugary_delicacy",
+		"toomanyorigins:large_leap",
+		"toomanyorigins:lightweight",
+		"origins:vegetarian",
+		"toomanyorigins:lucky_footing"
+	],
+	"icon": "minecraft:gunpowder",
+	"order": 5,
+	"impact": 1,
+	"name": "Bitterman"
+}

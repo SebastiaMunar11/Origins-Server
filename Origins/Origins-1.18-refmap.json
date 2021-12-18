@@ -1,0 +1,86 @@
+{
+  "mappings": {
+    "io/github/apace100/origins/mixin/NoCobwebSlowdownMixin": {
+      "slowMovement": "Lnet/minecraft/class_1657;method_5844(Lnet/minecraft/class_2680;Lnet/minecraft/class_243;)V"
+    },
+    "io/github/apace100/origins/mixin/SelectionInvulnerabilityMixin": {
+      "isInvulnerableTo": "Lnet/minecraft/class_1297;method_5679(Lnet/minecraft/class_1282;)Z"
+    },
+    "io/github/apace100/origins/mixin/WaterBreathingMixin$UpdateAir": {
+      "updateTurtleHelmet": "Lnet/minecraft/class_1657;method_7330()V",
+      "Lnet/minecraft/entity/player/PlayerEntity;isSubmergedIn(Lnet/minecraft/tag/Tag;)Z": "Lnet/minecraft/class_1657;method_5777(Lnet/minecraft/class_3494;)Z",
+      "tick": "Lnet/minecraft/class_1657;method_5773()V"
+    },
+    "io/github/apace100/origins/mixin/LikeWaterMixin": {
+      "Lnet/minecraft/entity/LivingEntity;method_26317(DZLnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/Vec3d;": "Lnet/minecraft/class_1309;method_26317(DZLnet/minecraft/class_243;)Lnet/minecraft/class_243;",
+      "travel": "Lnet/minecraft/class_1309;method_6091(Lnet/minecraft/class_243;)V"
+    },
+    "io/github/apace100/origins/mixin/OriginUpgradeMixin": {
+      "grantCriterion": "Lnet/minecraft/class_2985;method_12878(Lnet/minecraft/class_161;Ljava/lang/String;)Z",
+      "Lnet/minecraft/advancement/PlayerAdvancementTracker;endTrackingCompleted(Lnet/minecraft/advancement/Advancement;)V": "Lnet/minecraft/class_2985;method_12880(Lnet/minecraft/class_161;)V"
+    },
+    "io/github/apace100/origins/mixin/ServerCheckMixin": {
+      "connect(Lnet/minecraft/client/MinecraftClient;Lnet/minecraft/client/network/ServerAddress;)V": "Lnet/minecraft/class_412;method_2130(Lnet/minecraft/class_310;Lnet/minecraft/class_639;)V"
+    },
+    "io/github/apace100/origins/mixin/ConduitOnLandMixin": {
+      "Lnet/minecraft/entity/player/PlayerEntity;isTouchingWaterOrRain()Z": "Lnet/minecraft/class_1657;method_5721()Z",
+      "givePlayersEffects": "Lnet/minecraft/class_2597;method_11055(Lnet/minecraft/class_1937;Lnet/minecraft/class_2338;Ljava/util/List;)V"
+    },
+    "io/github/apace100/origins/mixin/ScareCreepersMixin": {
+      "Lnet/minecraft/entity/ai/goal/GoalSelector;add(ILnet/minecraft/entity/ai/goal/Goal;)V": "Lnet/minecraft/class_1355;method_6277(ILnet/minecraft/class_1352;)V",
+      "initGoals": "Lnet/minecraft/class_1548;method_5959()V"
+    },
+    "io/github/apace100/origins/mixin/WaterVisibilityMixin": {
+      "getUnderwaterVisibility": "Lnet/minecraft/class_746;method_3140()F"
+    },
+    "io/github/apace100/origins/mixin/WaterBreathingMixin$CanBreatheInWater": {
+      "canBreatheInWater": "Lnet/minecraft/class_1309;method_6094()Z"
+    },
+    "io/github/apace100/origins/mixin/LoginMixin": {
+      "Lnet/minecraft/server/PlayerManager;onPlayerConnect(Lnet/minecraft/network/ClientConnection;Lnet/minecraft/server/network/ServerPlayerEntity;)V": "Lnet/minecraft/class_3324;method_14570(Lnet/minecraft/class_2535;Lnet/minecraft/class_3222;)V"
+    }
+  },
+  "data": {
+    "named:intermediary": {
+      "io/github/apace100/origins/mixin/NoCobwebSlowdownMixin": {
+        "slowMovement": "Lnet/minecraft/class_1657;method_5844(Lnet/minecraft/class_2680;Lnet/minecraft/class_243;)V"
+      },
+      "io/github/apace100/origins/mixin/SelectionInvulnerabilityMixin": {
+        "isInvulnerableTo": "Lnet/minecraft/class_1297;method_5679(Lnet/minecraft/class_1282;)Z"
+      },
+      "io/github/apace100/origins/mixin/WaterBreathingMixin$UpdateAir": {
+        "updateTurtleHelmet": "Lnet/minecraft/class_1657;method_7330()V",
+        "Lnet/minecraft/entity/player/PlayerEntity;isSubmergedIn(Lnet/minecraft/tag/Tag;)Z": "Lnet/minecraft/class_1657;method_5777(Lnet/minecraft/class_3494;)Z",
+        "tick": "Lnet/minecraft/class_1657;method_5773()V"
+      },
+      "io/github/apace100/origins/mixin/LikeWaterMixin": {
+        "Lnet/minecraft/entity/LivingEntity;method_26317(DZLnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/Vec3d;": "Lnet/minecraft/class_1309;method_26317(DZLnet/minecraft/class_243;)Lnet/minecraft/class_243;",
+        "travel": "Lnet/minecraft/class_1309;method_6091(Lnet/minecraft/class_243;)V"
+      },
+      "io/github/apace100/origins/mixin/OriginUpgradeMixin": {
+        "grantCriterion": "Lnet/minecraft/class_2985;method_12878(Lnet/minecraft/class_161;Ljava/lang/String;)Z",
+        "Lnet/minecraft/advancement/PlayerAdvancementTracker;endTrackingCompleted(Lnet/minecraft/advancement/Advancement;)V": "Lnet/minecraft/class_2985;method_12880(Lnet/minecraft/class_161;)V"
+      },
+      "io/github/apace100/origins/mixin/ServerCheckMixin": {
+        "connect(Lnet/minecraft/client/MinecraftClient;Lnet/minecraft/client/network/ServerAddress;)V": "Lnet/minecraft/class_412;method_2130(Lnet/minecraft/class_310;Lnet/minecraft/class_639;)V"
+      },
+      "io/github/apace100/origins/mixin/ConduitOnLandMixin": {
+        "Lnet/minecraft/entity/player/PlayerEntity;isTouchingWaterOrRain()Z": "Lnet/minecraft/class_1657;method_5721()Z",
+        "givePlayersEffects": "Lnet/minecraft/class_2597;method_11055(Lnet/minecraft/class_1937;Lnet/minecraft/class_2338;Ljava/util/List;)V"
+      },
+      "io/github/apace100/origins/mixin/ScareCreepersMixin": {
+        "Lnet/minecraft/entity/ai/goal/GoalSelector;add(ILnet/minecraft/entity/ai/goal/Goal;)V": "Lnet/minecraft/class_1355;method_6277(ILnet/minecraft/class_1352;)V",
+        "initGoals": "Lnet/minecraft/class_1548;method_5959()V"
+      },
+      "io/github/apace100/origins/mixin/WaterVisibilityMixin": {
+        "getUnderwaterVisibility": "Lnet/minecraft/class_746;method_3140()F"
+      },
+      "io/github/apace100/origins/mixin/WaterBreathingMixin$CanBreatheInWater": {
+        "canBreatheInWater": "Lnet/minecraft/class_1309;method_6094()Z"
+      },
+      "io/github/apace100/origins/mixin/LoginMixin": {
+        "Lnet/minecraft/server/PlayerManager;onPlayerConnect(Lnet/minecraft/network/ClientConnection;Lnet/minecraft/server/network/ServerPlayerEntity;)V": "Lnet/minecraft/class_3324;method_14570(Lnet/minecraft/class_2535;Lnet/minecraft/class_3222;)V"
+      }
+    }
+  }
+}

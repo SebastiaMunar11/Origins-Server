@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "toomanyorigins",
+  "version": "0.3.2",
+  "name": "TooManyOrigins",
+  "description": "Origins addon that serves as an extension to the original mod.",
+  "authors": [
+    "Pug",
+    "Omniv",
+    "PapaPepsmAn"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/toomanyorigins/",
+    "sources": "https://github.com/MerchantPug/toomanyorigins/",
+    "issues": "https://github.com/MerchantPug/toomanyorigins/issues/"
+  },
+  "license": "MIT",
+  "icon": "assets/toomanyorigins/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.merchantpug.toomanyorigins.TooManyOrigins"
+    ],
+    "client": [
+      "io.github.merchantpug.toomanyorigins.TooManyOriginsClient"
+    ]
+  },
+  "mixins": [
+    "toomanyorigins.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "\u003e\u003d0.11.3",
+    "fabric": "\u003e\u003d0.43.0",
+    "minecraft": "1.18.x",
+    "java": "\u003e\u003d17",
+    "origins": "\u003e\u003d1.2.0"
+  },
+  "jars": [
+    {
+      "file": "META-INF/jars/apugli-v1.2.1.jar"
+    }
+  ]
+}

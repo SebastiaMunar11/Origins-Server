@@ -1,0 +1,13 @@
+{
+  "powers": [
+	"extraorigins:green_thumb",
+	"extraorigins:photosynthesis",
+	"extraorigins:absorbing",
+	"extraorigins:flammable",
+	"extraorigins:delicate",
+	"extraorigins:nectarivore"
+  ],
+  "icon": "oak_sapling",
+  "order": 1,
+  "impact": 2
+}

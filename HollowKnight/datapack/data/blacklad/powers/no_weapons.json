@@ -1,0 +1,101 @@
+{
+	"type": "origins:modify_damage_dealt",
+	"name": "how to use these?",
+	"description": "you don't know how to use shield, bow, crossbow. And you can only use swords to fight. And you can't wear armor.",
+	"type": "origins:modify_damage_dealt",
+	"modifiers": [{
+			"operation": "addition",
+			"value": 0
+		},
+		{
+			"operation": "multiply_total",
+			"value": -1
+		}
+	],
+	"damage_condition": {
+		"type": "origins:attacker",
+		"entity_condition": {
+			"type": "origins:or",
+			"conditions": [{
+				"type": "origins:equipped_item",
+				"equipment_slot": "mainhand",
+				"item_condition": {
+					"type": "origins:ingredient",
+					"ingredient": [{
+							"item": "wooden_axe"
+						},
+						{
+							"item": "stone_axe"
+						},
+						{
+							"item": "golden_axe"
+						},
+						{
+							"item": "iron_axe"
+						},
+						{
+							"item": "diamond_axe"
+						},
+						{
+							"item": "netherite_axe"
+						},
+						{
+							"item": "wooden_pickaxe"
+						},
+						{
+							"item": "stone_pickaxe"
+						},
+						{
+							"item": "golden_pickaxe"
+						},
+						{
+							"item": "iron_pickaxe"
+						},
+						{
+							"item": "diamond_pickaxe"
+						},
+						{
+							"item": "netherite_pickaxe"
+						},
+						{
+							"item": "wooden_shovel"
+						},
+						{
+							"item": "stone_shovel"
+						},
+						{
+							"item": "golden_shovel"
+						},
+						{
+							"item": "iron_shovel"
+						},
+						{
+							"item": "diamond_shovel"
+						},
+						{
+							"item": "netherite_shovel"
+						},
+						{
+							"item": "wooden_hoe"
+						},
+						{
+							"item": "stone_hoe"
+						},
+						{
+							"item": "golden_hoe"
+						},
+						{
+							"item": "iron_hoe"
+						},
+						{
+							"item": "diamond_hoe"
+						},
+						{
+							"item": "netherite_hoe"
+						}
+					]
+				}
+			}]
+		}
+	}
+}

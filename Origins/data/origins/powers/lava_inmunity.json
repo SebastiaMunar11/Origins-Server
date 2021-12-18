@@ -1,0 +1,41 @@
+{
+    "type": "origins:multiple",
+        "speed": {
+            "type": "origins:modify_swim_speed",
+            "hidden": true,
+            "modifier": {
+              "name": "Less swim speed",
+              "value": 2,
+              "operation": "divide_base"
+            }
+          },
+          "swim": {
+            "type": "origins:swimming",
+            "condition": {
+                "type": "origins:fluid_height",
+                "fluid": "minecraft:lava",
+                "comparison": ">",
+                "compare_to": 0.0,
+                "inverted": false
+            },
+            "hidden": true
+        },
+        "vision": {
+            "type": "origins:lava_vision",
+            "hidden": true,
+            "s": 50,
+            "v": 50
+        },
+        "immune": {
+            "type": "origins:invulnerability",
+            "name": "name here",
+            "description": "description here.",
+            "damage_condition": {
+              "type": "origins:fire"
+            }
+          },
+          "invul":{
+            "type": "origins:fire_immunity",
+            "hidden": true
+          }
+}
